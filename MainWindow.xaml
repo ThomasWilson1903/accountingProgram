@@ -4,11 +4,67 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:accountingProgram"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        Background="Transparent"  
+        Title="MainWindow" Height="645" Width="875"
+        Background="Transparent" WindowStyle="None" AllowsTransparency="True"
         >
-    <Border>
-        
-    </Border>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="BlueGrey" SecondaryColor="Cyan"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--Image-->
+        <Border CornerRadius="10 0 0 10" BorderThickness="0">
+            <Border.Background>
+                <ImageBrush ImageSource="\Resources\1613586679_70-p-foni-dlya-finansovikh-prezentatsii-91.jpg" Stretch="UniformToFill" AlignmentX="Center"/>
+            </Border.Background>
+            <Grid>
+                <StackPanel HorizontalAlignment="Center">
+                    
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Авторизация " FontSize="46"/>
+                    <TextBlock Text="авторизуйтесь, что бы использовать " FontSize="16" HorizontalAlignment="Center"/>
+                    <TextBlock Text="все функции" FontSize="16" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+
+        <Border Grid.Column="1" CornerRadius="0 10 10 0" BorderThickness="0" MouseDown="mouseDownMove">
+            <Border.Background>
+                <SolidColorBrush Color="#F2F2F2"/>
+            </Border.Background>
+            <Grid>
+                <Border Background="Red" BorderThickness="0" CornerRadius="360" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="13 13" MouseDown="mouseDown">
+                    <materialDesign:PackIcon Kind="Close"  Foreground="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                </Border>
+                
+                <StackPanel VerticalAlignment="Center" Margin="10 0 10 0">
+                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Логин" FontSize="20"
+                         materialDesign:HintAssist.HintOpacity="1"/>
+                    <PasswordBox x:Name="pbPassword" Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" Margin="0 15" materialDesign:HintAssist.Hint="Пароль"
+                     materialDesign:HintAssist.HintOpacity="1" FontSize="20" />
+
+                    <StackPanel Orientation="Horizontal" Margin="0 15 0 0 ">
+                        <Button Content="Вход" Foreground="#FFFFFF"  materialDesign:ButtonAssist.CornerRadius="23" FontSize="20" Height="50" Width="172"/>
+
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+    </Grid>
 </Window>

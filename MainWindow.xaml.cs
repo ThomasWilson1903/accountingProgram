@@ -23,6 +23,20 @@ namespace accountingProgram
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void mouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
+
+        private void mouseDownMove(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }
