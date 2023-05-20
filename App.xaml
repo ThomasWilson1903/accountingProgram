@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:accountingProgram"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <BitmapImage x:Key="photo" UriSource="\Resources\unnamed.jpg"/>
     </Application.Resources>
 </Application>

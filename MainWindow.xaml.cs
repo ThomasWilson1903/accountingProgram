@@ -1,4 +1,5 @@
-﻿using System;
+﻿using accountingProgram.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,11 @@ namespace accountingProgram
             {
                 this.DragMove();
             }
+        }
+
+        private void clEnterSystem(object sender, RoutedEventArgs e)
+        {
+            new wdMain().ShowDialog();
         }
     }
 }

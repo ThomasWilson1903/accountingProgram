@@ -58,7 +58,7 @@
                      materialDesign:HintAssist.HintOpacity="1" FontSize="20" />
 
                     <StackPanel Orientation="Horizontal" Margin="0 15 0 0 ">
-                        <Button Content="Вход" Foreground="#FFFFFF"  materialDesign:ButtonAssist.CornerRadius="23" FontSize="20" Height="50" Width="172"/>
+                        <Button Content="Вход" Click="clEnterSystem" Foreground="#FFFFFF"  materialDesign:ButtonAssist.CornerRadius="23" FontSize="20" Height="50" Width="172"/>
 
                     </StackPanel>
                 </StackPanel>
