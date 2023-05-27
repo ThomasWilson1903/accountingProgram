@@ -1,4 +1,6 @@
 ﻿using accountingProgram.Windows;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.user;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +44,24 @@ namespace accountingProgram
 
         private void clEnterSystem(object sender, RoutedEventArgs e)
         {
-            new wdMain().ShowDialog();
+            var api = new UserApi();
+
+            var response = api.auth(new AuthBody
+            {
+                Login = tbLogin.Text,
+                Password = pbPassword.Password
+            });
+            if (response.Access_token != "")
+            {
+                Application.Current.MainWindow.Hide();
+                new wdMain().ShowDialog();
+
+                Application.Current.MainWindow.Close();
+                tbLogin.Text = "";
+                pbPassword.Password = "";
+            }
+            else
+                MessageBox.Show("Error");
         }
     }
 }

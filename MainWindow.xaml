@@ -52,7 +52,7 @@
                 </Border>
                 
                 <StackPanel VerticalAlignment="Center" Margin="10 0 10 0">
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Логин" FontSize="20"
+                    <TextBox x:Name="tbLogin" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Логин" FontSize="20"
                          materialDesign:HintAssist.HintOpacity="1"/>
                     <PasswordBox x:Name="pbPassword" Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" Margin="0 15" materialDesign:HintAssist.Hint="Пароль"
                      materialDesign:HintAssist.HintOpacity="1" FontSize="20" />

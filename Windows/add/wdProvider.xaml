@@ -1,0 +1,33 @@
+﻿<Window x:Class="accountingProgram.Windows.add.wdProvider"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:accountingProgram.Windows.add"
+        mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        Title="wdProvider" Height="450" Width="400" MinHeight="450" MinWidth="400" FontSize="20">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Blue" SecondaryColor="Pink"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel VerticalAlignment="Center" Margin="5">
+
+            <ComboBox x:Name="cbUser" DisplayMemberPath="FirstName" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Пользователь" materialDesign:HintAssist.HintOpacity="1"/>
+
+            <TextBox x:Name="tbPhone" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Телефон" materialDesign:HintAssist.HintOpacity="1"/>
+
+            <TextBox x:Name="tbAddres" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Адрес" materialDesign:HintAssist.HintOpacity="1"/>
+
+            <Button Click="clAddProvider" Content="Добавить" Foreground="#FFFFFF" Width="150" Height="40" materialDesign:ButtonAssist.CornerRadius="20" Margin="0 10 0 0"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

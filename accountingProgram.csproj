@@ -37,9 +37,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\" />
-    <Folder Include="Windows\add\" />
-  </ItemGroup>
-
 </Project>

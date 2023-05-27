@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:accountingProgram.Windows"
         mc:Ignorable="d"
-         WindowStyle="None" Background="Transparent" AllowsTransparency="False"
-        Title="wdMain" Height="720" Width="1080"
+        Background="Transparent" AllowsTransparency="False"
+        Title="wdMain" Height="720" Width="1080" MinHeight="720" MinWidth="1080"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="INTER">
     <Window.Resources>
@@ -89,7 +89,7 @@
                 <Border Grid.Row="0" MouseDown="mouseDownMove"/>
                 
                 <TextBlock x:Name="tbTitleFrame" Grid.Row="1" FontSize="36" Text="Заказы" VerticalAlignment="Center" Margin="20 0 0 0" />
-                <Button Grid.Row="1" Width="250" Height="60" materialDesign:ButtonAssist.CornerRadius="30"
+                <Button x:Name="btAddOpenWindow" Grid.Row="1" Width="250" Height="60" materialDesign:ButtonAssist.CornerRadius="30"
                         HorizontalAlignment="Right" Margin="0 0 20 0">
                     <Button.Content>
                         <TextBlock Text="+ Добавить" Foreground="#FFFFFF" FontSize="20"/>
