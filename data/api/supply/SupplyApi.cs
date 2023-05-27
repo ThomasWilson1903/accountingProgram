@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Diploma.model.supply;
 
 namespace accountingProgram.data.api.supply
 {
@@ -35,6 +36,21 @@ namespace accountingProgram.data.api.supply
             var json = response.Content.ReadAsStringAsync().Result;
 
             return JsonConvert.DeserializeObject<List<Supply>>(json);
+        }
+
+        public List<SupplyAnalyticDto> GetAnalytics()
+        {
+            var builder = new UriBuilder("http://localhost:5000/api/Supply/Analytics");
+
+            var url = builder.ToString();
+
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+
+            var response = httpClient.SendAsync(request).Result;
+
+            var json = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<List<SupplyAnalyticDto>>(json);
         }
 
         public void Add(CreateSupplyDto body)

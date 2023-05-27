@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Diploma.model.supply;
 
 namespace accountingProgram.data.api.order
 {
@@ -38,6 +39,24 @@ namespace accountingProgram.data.api.order
             var json = response.Content.ReadAsStringAsync().Result;
 
             return JsonConvert.DeserializeObject<List<Order>>(json);
+        }
+
+        public List<SupplyAnalyticDto> GetAnalytic()
+        {
+            var token = localStorage.Get<AuthResponse>("token").Access_token;
+
+            var builder = new UriBuilder("http://localhost:5000/api/Order/Analytics");
+
+            var url = builder.ToString();
+
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            request.Headers.TryAddWithoutValidation("Authorization", $"Bearer {token}");
+
+            var response = httpClient.SendAsync(request).Result;
+
+            var json = response.Content.ReadAsStringAsync().Result;
+
+            return JsonConvert.DeserializeObject<List<SupplyAnalyticDto>>(json);
         }
 
         public void Add(CreateOrderDto body)
