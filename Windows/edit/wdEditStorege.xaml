@@ -1,0 +1,26 @@
+﻿<Window x:Class="accountingProgram.Windows.edit.wdEditStorege"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:accountingProgram.Windows.edit"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        Title="" Height="450" Width="400" MinHeight="450" MinWidth="400" FontSize="20">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Blue" SecondaryColor="Pink"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid VerticalAlignment="Center">
+        <StackPanel Margin="20">
+            <TextBox x:Name="tbAddress" Text="{Binding Address}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Адрес склада" materialDesign:HintAssist.HintOpacity="1"/>
+            <TextBox x:Name="tbDescriptions" Text="{Binding Description}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Описания" materialDesign:HintAssist.HintOpacity="1"/>
+            <Button Content="Добавить" Click="clWarehouse" Foreground="#FFFFFF" Width="150" Height="40" materialDesign:ButtonAssist.CornerRadius="20" Margin="0 10 0 0"/>
+        </StackPanel>
+    </Grid>
+</Window>

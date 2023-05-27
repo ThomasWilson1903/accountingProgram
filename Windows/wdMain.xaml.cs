@@ -1,4 +1,5 @@
-﻿using System;
+﻿using accountingProgram.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,19 +62,87 @@ namespace accountingProgram.Windows
 
         private void clOpenWindowRegister(object sender, RoutedEventArgs e)
         {
+            switch1 = 1;
+            frMain.Navigate(new pgOrder());
             tbTitleFrame.Text = "Заказы";
-        }
 
+            //var api = new UserNetworkApi();
+
+            btAddOpenWindow.Visibility = Visibility.Visible;
+
+            /*string role = api.GetUserRole().ToString();
+
+            if (role == "AdminUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }
+
+            if (role == "EmployeeUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }
+
+            if (role == "ProviderUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }
+
+            if (role == "BaseUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }*/
+        }
+        int switch1;
         private void clOpenPageDoctors(object sender, RoutedEventArgs e)
         {
             tbTitleFrame.Text = "Склады";
+
+
+            switch1 = 2;
+            frMain.Navigate(new pgStorages());
+            tbTitleFrame.Text = "Склады";
+
+            //var api = new UserNetworkApi();
+
+            btAddOpenWindow.Visibility = Visibility.Visible;
+
+            /*string role = api.GetUserRole().ToString();
+
+            if (role == "AdminUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }
+
+            if (role == "ProviderUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }*/
+
 
         }
 
         private void clOpenPageRecept(object sender, RoutedEventArgs e)
         {
 
+            switch1 = 3;
+            frMain.Navigate(new pgProvaider());
             tbTitleFrame.Text = "Поставщики";
+
+            /*var api = new UserNetworkApi();
+
+            btAddOpenWindow.Visibility = Visibility.Collapsed;
+
+            string role = api.GetUserRole().ToString();
+
+            if (role == "AdminUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }
+
+            if (role == "EmployeeUser")
+            {
+                btAddOpenWindow.Visibility = Visibility.Visible;
+            }*/
         }
     }
 }
