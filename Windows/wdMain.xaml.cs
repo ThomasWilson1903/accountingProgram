@@ -54,10 +54,7 @@ namespace accountingProgram.Windows
 
         private void mouseDownMove(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                this.DragMove();
-            }
+            
         }
         private bool IsMaxWindow = false;
         private void mouseDownMax(object sender, MouseButtonEventArgs e)
