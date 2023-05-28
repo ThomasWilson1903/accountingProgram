@@ -43,7 +43,14 @@
                     <StackPanel Margin="24 100 0 0">
                         <TextBlock x:Name="UserGET" Text="Имя Фамилия" FontSize="20" Foreground="#FFFFFF" Margin="0 0 0 30"/>
                         <StackPanel HorizontalAlignment="Left">
-
+                            <Button  Click="clOpenWindowChart" Foreground="#FFFFFF" Margin="0 0 0 10" Style="{StaticResource MaterialDesignFlatAccentButton}">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ChartArc" VerticalAlignment="Center"/>
+                                        <TextBlock Margin="7 0 0 0" Text="График" HorizontalAlignment="Left"/>
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
                             <Button  Click="clOpenWindowRegister" Foreground="#FFFFFF" Style="{StaticResource MaterialDesignFlatAccentButton}">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal">
