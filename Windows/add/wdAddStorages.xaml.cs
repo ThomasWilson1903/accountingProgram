@@ -1,4 +1,6 @@
-﻿using System;
+﻿using accountingProgram.data.api.warehouse;
+using DiplomaOborotovIS.data.api.model.warehouse;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,12 +31,12 @@ namespace accountingProgram.Windows.add
 
         private void clWarehouse(object sender, RoutedEventArgs e)
         {
-            /*var api = new WarehouseNetworkApi();
-            api.Add(new data.api.model.warehouse.CreateWarehouseDto
+            var api = new WarehouseApi();
+            api.Add(new CreateWarehouseDto
             {
                 Address = tbAddress.Text,
                 Description = tbDescriptions.Text,
-            });*/
+            });
             Close();
         }
     }

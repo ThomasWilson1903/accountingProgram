@@ -1,4 +1,9 @@
-﻿using System;
+﻿using accountingProgram.data.api.order;
+using accountingProgram.data.api.product;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.order;
+using DiplomaOborotovIS.data.api.model.product;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,34 +25,34 @@ namespace accountingProgram.Windows.add
     public partial class wdAddOrder : Window
     {
 
-        //List<Product> products;
+        List<Product> products;
 
         public wdAddOrder()
         {
             InitializeComponent();
 
-            /*var api = new OrderNetworkApi();
+            var api = new OrderApi();
 
-            var apiProduct = new ProductNetworkApi();
+            var apiProduct = new ProductApi();
 
-            var apiUser = new UserNetworkApi();
+            var apiUser = new UserApi();
 
-            products = apiProduct.GetAll();*/
+            products = apiProduct.GetAll();
 
 
-            //cbProduct.ItemsSource = products;
+            cbProduct.ItemsSource = products;
 
         }
 
         private void clSave(object sender, RoutedEventArgs e)
         {
-            /*var api = new OrderNetworkApi();
-            api.Add(new data.api.model.order.CreateOrderDto()
+            var api = new OrderApi();
+            api.Add(new CreateOrderDto()
             {
                 Addres = tbAddres.Text,
                 ProductId = products[cbProduct.SelectedIndex].Id,
                 Quantity = Convert.ToInt32(tbQuantity.Text)
-            });*/
+            });
             Close();
         }
     }

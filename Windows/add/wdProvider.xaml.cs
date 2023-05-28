@@ -1,4 +1,7 @@
-﻿using DiplomaOborotovIS.data.api.model.user;
+﻿using accountingProgram.data.api.provider;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.provider;
+using DiplomaOborotovIS.data.api.model.user;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,23 +23,24 @@ namespace accountingProgram.Windows.add
     /// </summary>
     public partial class wdProvider : Window
     {
+        List<User> users;
         public wdProvider()
         {
             InitializeComponent();
-            /*var api = new UserNetworkApi();
+            var api = new UserApi();
             users = api.GetUsers();
-            cbUser.ItemsSource = users;*/
+            cbUser.ItemsSource = users;
         }
 
         private void clAddProvider(object sender, RoutedEventArgs e)
         {
-            /*var api = new ProviderNetworkApi();
+            var api = new ProviderApi();
             api.Add(new CreateProviderDto
             {
                 Address = tbAddres.Text,
                 PhoneNumber = tbPhone.Text,
                 UserId = users[cbUser.SelectedIndex].Id,
-            });*/
+            });
             Close();
         }
     }
