@@ -1,4 +1,8 @@
-﻿using accountingProgram.Windows.add;
+﻿using accountingProgram.data.api.provider;
+using accountingProgram.Windows.add;
+using accountingProgram.Windows.edit;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.provider;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +28,15 @@ namespace accountingProgram.Pages
     {
         //IEnumerable<Provider> provider;
 
+        IEnumerable<Provider> provider;
+
         public pgProvaider()
         {
             InitializeComponent();
 
             update();
 
-            /*var api = new UserNetworkApi();
+            var api = new UserApi();
             Operations.Visibility = Visibility.Collapsed;
             string UserRoles = api.GetUserRole().ToString();
             if (UserRoles == "AdminUser")
@@ -40,36 +46,36 @@ namespace accountingProgram.Pages
             if (UserRoles == "EmployeeUser")
             {
                 Operations.Visibility = Visibility.Visible;
-            }*/
+            }
         }
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            /* Provider del = (sender as Button).DataContext as Provider;
-             var api = new ProviderNetworkApi();
-             api.Delete(del.Id);
-             NavigationService.Navigate(new pgProvider());*/
+            Provider del = (sender as Button).DataContext as Provider;
+            var api = new ProviderApi();
+            api.Delete(del.Id);
+            NavigationService.Navigate(new pgProvaider());
         }
 
         private void clChang(object sender, RoutedEventArgs e)
         {
-            /*Provider chang = (sender as Button).DataContext as Provider;
-            var api = new ProviderNetworkApi();
+            Provider chang = (sender as Button).DataContext as Provider;
+            var api = new ProviderApi();
             new wdEditProvider(chang).ShowDialog();
-            NavigationService.Navigate(new pgProvider());*/
+            NavigationService.Navigate(new pgProvaider());
         }
 
         void update()
         {
-            /*var api = new ProviderNetworkApi();
+            var api = new ProviderApi();
             provider = api.GetAll(tbSerch.Text);
-            dgvProvader.ItemsSource = provider;*/
+            dgvProvader.ItemsSource = provider;
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
         {
-            /*provider = provider.Where(p => p.LastName.ToLower().Contains(tbSerch.Text.ToString().ToLower()));
-            dgvProvader.ItemsSource = provider;*/
+            provider = provider.Where(p => p.LastName.ToLower().Contains(tbSerch.Text.ToString().ToLower()));
+            dgvProvader.ItemsSource = provider;
         }
     }
     

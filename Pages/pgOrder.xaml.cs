@@ -1,4 +1,8 @@
-﻿using System;
+﻿using accountingProgram.data.api.order;
+using accountingProgram.Windows.edit;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.order;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,21 +24,21 @@ namespace accountingProgram.Pages
     /// </summary>
     public partial class pgOrder : Page
     {
-        //IEnumerable<Order> orders;
+        IEnumerable<Order> orders;
 
 
         public pgOrder()
         {
             InitializeComponent();
 
-            /*var api = new UserNetworkApi();
+            var api = new UserApi();
             //Operations.Visibility = Visibility.Collapsed;
             string UserRoles = api.GetUserRole().ToString();
 
             if (UserRoles == "BaseUser")
             {
                 Operations.Visibility = Visibility.Visible;
-            }*/
+            }
 
             update();
 
@@ -42,25 +46,25 @@ namespace accountingProgram.Pages
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            /*Order del = (sender as Button).DataContext as Order;
-            var api = new OrderNetworkApi();
+            Order del = (sender as Button).DataContext as Order;
+            var api = new OrderApi();
             api.Delete(del.Id);
-            NavigationService.Navigate(new pgOrder());*/
+            NavigationService.Navigate(new pgOrder());
         }
 
         void update()
         {
-            /*var api = new OrderNetworkApi();
+            var api = new OrderApi();
             orders = api.GetAll(tbSerch.Text);
-            dgvOrder.ItemsSource = orders;*/
+            dgvOrder.ItemsSource = orders;
         }
 
         private void clChang(object sender, RoutedEventArgs e)
         {
-            /*Order chang = (sender as Button).DataContext as Order;
-            var api = new OrderNetworkApi();
+            Order chang = (sender as Button).DataContext as Order;
+            var api = new OrderApi();
             new wdEditOrder(chang).ShowDialog();
-            NavigationService.Navigate(new pgOrder());*/
+            NavigationService.Navigate(new pgOrder());
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)

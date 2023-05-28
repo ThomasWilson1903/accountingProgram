@@ -1,4 +1,7 @@
-﻿using accountingProgram.Windows.add;
+﻿using accountingProgram.data.api.provider;
+using accountingProgram.Windows.add;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.provider;
 using DiplomaOborotovIS.data.api.model.user;
 using System;
 using System.Collections.Generic;
@@ -21,25 +24,25 @@ namespace accountingProgram.Windows.edit
     /// </summary>
     public partial class wdEditProvider : Window
     {
-        /*Provider Provider;
-        Provider Provider1;*/
+        Provider Provider;
+        Provider Provider1;
         List<User> users;
-        public wdEditProvider(/*Provider provider*/)
+        public wdEditProvider(Provider provider)
         {
-            /*this.Provider = provider;
+            this.Provider = provider;
             this.Provider1 = provider;
             InitializeComponent();
             DataContext = Provider;
-            var api = new UserNetworkApi();
+            var api = new UserApi();
             DataContext = Provider;//вывод прикрепленные данные
             tbUserLastName.Text = Provider1.LastName;
-            ///и в момент вывода прикрепленных данных происходит выбор элемента */
+            ///и в момент вывода прикрепленных данных происходит выбор элемента 
         }
 
         private void clEditProvider(object sender, RoutedEventArgs e)
         {
 
-            /*var api = new ProviderNetworkApi();
+            var api = new ProviderApi();
             api.Update(Provider.Id, new UpdateProviderDto
             {
                 FirstName = Provider1.FirstName,
@@ -49,7 +52,7 @@ namespace accountingProgram.Windows.edit
                 Address = tbAddres.Text,
                 PhoneNumber = tbAddres.Text,
             });
-*/
+
             Close();
         }
     }

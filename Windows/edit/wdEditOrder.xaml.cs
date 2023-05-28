@@ -1,4 +1,8 @@
-﻿using accountingProgram.Pages;
+﻿using accountingProgram.data.api.order;
+using accountingProgram.data.api.product;
+using accountingProgram.Pages;
+using DiplomaOborotovIS.data.api.model.order;
+using DiplomaOborotovIS.data.api.model.product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +25,13 @@ namespace accountingProgram.Windows.edit
     /// </summary>
     public partial class wdEditOrder : Window
     {
-        public wdEditOrder(/*Order order*/)
+        Order Order;
+        List<Product> products;
+        public wdEditOrder(Order order)
         {
-            /*this.Order = order;
+            this.Order = order;
             InitializeComponent();
-            var apiProduct = new ProductNetworkApi();
+            var apiProduct = new ProductApi();
 
             products = apiProduct.GetAll();
 
@@ -33,19 +39,19 @@ namespace accountingProgram.Windows.edit
 
             cbProduct.SelectedItem = order.Product.Id;
 
-            DataContext = Order;*/
+            DataContext = Order;
         }
 
         private void clSave(object sender, RoutedEventArgs e)
         {
-            /*var api = new OrderNetworkApi();
+            var api = new OrderApi();
             api.Update(Order.Id, new CreateOrderDto
             {
                 Addres = tbAddres.Text,
                 ProductId = products[cbProduct.SelectedIndex].Id,
                 Quantity = Convert.ToInt32(tbQuantity.Text),
 
-            });*/
+            });
             Close();
         }
 
