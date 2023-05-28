@@ -80,7 +80,7 @@
                     </StackPanel>
                 </Border>
                 <!--photo-->
-                <Border Grid.Row="1"  BorderThickness="4" Margin="24 0 0 0" BorderBrush="#495B73" VerticalAlignment="Top" HorizontalAlignment="Left" Height="140" Width="140"  CornerRadius="360">
+                <Border Grid.Row="1"  x:Name="ImagePrifile"  BorderThickness="4" Margin="24 0 0 0" BorderBrush="#495B73" VerticalAlignment="Top" MouseDown="mdDomlodeImage" HorizontalAlignment="Left" Height="140" Width="140"  CornerRadius="360">
                     <Border.Background>
                         <ImageBrush ImageSource="{Binding Photo, TargetNullValue={StaticResource photo}}" Stretch="UniformToFill" AlignmentY="Top"/>
                     </Border.Background>

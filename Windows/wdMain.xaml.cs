@@ -2,6 +2,7 @@
 using accountingProgram.Windows.add;
 using diplomaISPr22_33_PankovEA.data.api.user;
 using DiplomaOborotovIS.data.api.model.user;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -197,6 +198,24 @@ namespace accountingProgram.Windows
         private void clOpenWindowChart(object sender, RoutedEventArgs e)
         {
             frMain.Navigate(new pgMainChart());
+        }
+
+        private void mdDomlodeImage(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog { Filter = "Jpeg files|*.jpg|All file|*.*" };
+
+            if (openFile.ShowDialog() == true)
+            {
+                //User.Photo = File.ReadAllBytes(openFile.FileName);
+
+                var api = new UserApi();
+                var uri = new Uri(openFile.FileName);
+                var bitmap = new BitmapImage(uri);
+                api.updatePhoto(File.ReadAllBytes(openFile.FileName));
+                ImagePrifile.ImageSource = bitmap;
+
+
+            }
         }
     }
 }
