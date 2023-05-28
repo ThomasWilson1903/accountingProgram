@@ -1,4 +1,8 @@
-﻿using System;
+﻿using accountingProgram.data.api.warehouse;
+using accountingProgram.Windows.edit;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.warehouse;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +24,7 @@ namespace accountingProgram.Pages
     /// </summary>
     public partial class pgStorages : Page
     {
-        //IEnumerable<Warehouse> warehouse;
+        IEnumerable<Warehouse> warehouse;
 
 
         public pgStorages()
@@ -29,7 +33,7 @@ namespace accountingProgram.Pages
 
             update();
 
-            /*var api = new UserNetworkApi();
+            var api = new UserApi();
             Operations.Visibility = Visibility.Collapsed;
             string UserRoles = api.GetUserRole().ToString();
             if (UserRoles == "AdminUser")
@@ -39,36 +43,36 @@ namespace accountingProgram.Pages
             if (UserRoles == "ProviderUser")
             {
                 Operations.Visibility = Visibility.Visible;
-            }*/
+            }
         }
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            /*Warehouse del = (sender as Button).DataContext as Warehouse;
-            var api = new WarehouseNetworkApi();
+            Warehouse del = (sender as Button).DataContext as Warehouse;
+            var api = new WarehouseApi();
             api.Delete(del.Id);
-            NavigationService.Navigate(new pgStorages());*/
+            NavigationService.Navigate(new pgStorages());
         }
 
         private void clChang(object sender, RoutedEventArgs e)
         {
-            /*Warehouse chang = (sender as Button).DataContext as Warehouse;
-            var api = new WarehouseNetworkApi();
+            Warehouse chang = (sender as Button).DataContext as Warehouse;
+            var api = new WarehouseApi();
             new wdEditStorege(chang).ShowDialog();
-            NavigationService.Navigate(new pgStorages());*/
+            NavigationService.Navigate(new pgStorages());
         }
 
         void update()
         {
-            /*var api = new WarehouseNetworkApi();
+            var api = new WarehouseApi();
             warehouse = api.GetAll(tbSerch.Text);
-            dgvWarehouse.ItemsSource = warehouse;*/
+            dgvWarehouse.ItemsSource = warehouse;
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
         {
-            /*warehouse = warehouse.Where(p => p.Address.ToLower().Contains(tbSerch.Text.ToString().ToLower()));
-            dgvWarehouse.ItemsSource = warehouse;s*/
+            warehouse = warehouse.Where(p => p.Address.ToLower().Contains(tbSerch.Text.ToString().ToLower()));
+            dgvWarehouse.ItemsSource = warehouse;
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using accountingProgram.Pages;
+using accountingProgram.Windows.add;
+using diplomaISPr22_33_PankovEA.data.api.user;
+using DiplomaOborotovIS.data.api.model.user;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +23,26 @@ namespace accountingProgram.Windows
     /// </summary>
     public partial class wdMain : Window
     {
+        User User;
+
         public wdMain()
         {
             InitializeComponent();
+            update();
+            frMain.Navigate(new pgMainChart());
+        }
+
+        void update()
+        {
+            var api = new UserApi();
+            User = api.GetUser();
+
+            DataContext = User;
+            UserGET.Text = User.FirstName + " " + User.LastName;
+            //var Photo = User.Photo;
+            //var uri = new Uri(Photo);
+            // var bitmap = new BitmapImage(uri);
+            //Image.ImageSource = bitmap;
         }
 
         private void mouseDown(object sender, MouseButtonEventArgs e)
@@ -66,11 +86,11 @@ namespace accountingProgram.Windows
             frMain.Navigate(new pgOrder());
             tbTitleFrame.Text = "Заказы";
 
-            //var api = new UserNetworkApi();
+            var api = new UserApi();
 
             btAddOpenWindow.Visibility = Visibility.Visible;
 
-            /*string role = api.GetUserRole().ToString();
+            string role = api.GetUserRole().ToString();
 
             if (role == "AdminUser")
             {
@@ -90,9 +110,9 @@ namespace accountingProgram.Windows
             if (role == "BaseUser")
             {
                 btAddOpenWindow.Visibility = Visibility.Visible;
-            }*/
+            }
         }
-        int switch1;
+        int switch1 = 1;
         private void clOpenPageDoctors(object sender, RoutedEventArgs e)
         {
             tbTitleFrame.Text = "Склады";
@@ -102,11 +122,11 @@ namespace accountingProgram.Windows
             frMain.Navigate(new pgStorages());
             tbTitleFrame.Text = "Склады";
 
-            //var api = new UserNetworkApi();
+            var api = new UserApi();
 
             btAddOpenWindow.Visibility = Visibility.Visible;
 
-            /*string role = api.GetUserRole().ToString();
+            string role = api.GetUserRole().ToString();
 
             if (role == "AdminUser")
             {
@@ -116,7 +136,7 @@ namespace accountingProgram.Windows
             if (role == "ProviderUser")
             {
                 btAddOpenWindow.Visibility = Visibility.Visible;
-            }*/
+            }
 
 
         }
@@ -128,7 +148,7 @@ namespace accountingProgram.Windows
             frMain.Navigate(new pgProvaider());
             tbTitleFrame.Text = "Поставщики";
 
-            /*var api = new UserNetworkApi();
+            var api = new UserApi();
 
             btAddOpenWindow.Visibility = Visibility.Collapsed;
 
@@ -142,7 +162,36 @@ namespace accountingProgram.Windows
             if (role == "EmployeeUser")
             {
                 btAddOpenWindow.Visibility = Visibility.Visible;
-            }*/
+            }
+        }
+
+        private void clAdd(object sender, RoutedEventArgs e)
+        {
+            switch (switch1)
+            {
+                case 1:
+                    new wdAddOrder().ShowDialog();
+                    frMain.Navigate(new pgOrder());
+
+                    break;
+                case 2:
+                    new wdAddStorages().ShowDialog();
+                    frMain.Navigate(new pgStorages());
+
+                    break;
+                case 3:
+                    new wdProvider().ShowDialog();
+                    frMain.Navigate(new pgProvaider());
+
+                    break;
+            }
+        }
+
+        private void clExit(object sender, RoutedEventArgs e)
+        {
+            var api = new UserApi();
+            api.SignOut();
+            Close();
         }
     }
 }

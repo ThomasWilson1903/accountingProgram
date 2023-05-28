@@ -10,6 +10,6 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="pgMainChart">
     <Grid>
-       <lvc:CartesianChart Name="ChartMAin"/>
+       <lvc:CartesianChart Name="ChartMain"/>
     </Grid>
 </Page>

@@ -89,7 +89,7 @@
                 <Border Grid.Row="0" MouseDown="mouseDownMove"/>
                 
                 <TextBlock x:Name="tbTitleFrame" Grid.Row="1" FontSize="36" Text="Заказы" VerticalAlignment="Center" Margin="20 0 0 0" />
-                <Button x:Name="btAddOpenWindow" Grid.Row="1" Width="250" Height="60" materialDesign:ButtonAssist.CornerRadius="30"
+                <Button x:Name="btAddOpenWindow" Click="clAdd" Grid.Row="1" Width="250" Height="60" materialDesign:ButtonAssist.CornerRadius="30"
                         HorizontalAlignment="Right" Margin="0 0 20 0">
                     <Button.Content>
                         <TextBlock Text="+ Добавить" Foreground="#FFFFFF" FontSize="20"/>
@@ -99,7 +99,15 @@
                     <Frame x:Name="frMain" NavigationUIVisibility="Hidden"/>
                 </Border>
             </Grid>
+            <Button x:Name="btExit" Margin="10 0 0 10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="clExit" Foreground="#FFFFFF" Style="{StaticResource MaterialDesignFlatAccentButton}">
+                <Button.Content >
+                    <StackPanel Orientation="Horizontal" >
+                        <materialDesign:PackIcon Kind="LocationExit" VerticalAlignment="Center"/>
+                        <TextBlock Margin="7 0 0 0" Text="Выход" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </Button.Content>
 
+            </Button>
 
 
 
