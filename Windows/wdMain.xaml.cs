@@ -193,5 +193,10 @@ namespace accountingProgram.Windows
             api.SignOut();
             Close();
         }
+
+        private void clOpenWindowChart(object sender, RoutedEventArgs e)
+        {
+            frMain.Navigate(new pgMainChart());
+        }
     }
 }
